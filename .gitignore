@@ -10,6 +10,9 @@ venv/
 env/
 .venv/
 
+# Large datasets (DO NOT push to GitHub)
+data/UNSW-NB15_*.csv
+
 # IDE / Editor files
 .vscode/
 .idea/
