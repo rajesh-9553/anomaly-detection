@@ -4,7 +4,7 @@ import csv
 import random
 from pathlib import Path
 
-API_URL = "http://localhost:8000/ingest"
+API_URL = "https://anomaly-detection-vvhh.onrender.com/ingest"
 SUBSET = Path("data/subsetA.csv")
 DELAY = 0.1
 
