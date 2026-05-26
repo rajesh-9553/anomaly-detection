@@ -1,145 +1,263 @@
-# 🚨 Anomaly Detection Dashboard (Interactive)
+# 🚨 Real-Time Network Anomaly Detection & Monitoring System
 
-A real-time **network anomaly detection platform** built using **deep learning autoencoders**, designed to detect suspicious behavior, classify severity, and visualize threats through an interactive dashboard.
+A production-style AI-powered cybersecurity monitoring platform that detects anomalous network behavior in real time using a deep learning autoencoder, classifies threat severity, stores live anomaly events, and visualizes insights through an interactive analytics dashboard.
 
-This project demonstrates **end-to-end AI engineering**, including model training, real-time inference, alerting, storage, and visualization.
+Built with:
 
----
-
-## 📌 Overview
-
-This system ingests network traffic data, detects anomalous patterns using an **unsupervised autoencoder**, assigns severity levels, and presents insights via a **live dashboard**.
-
-It closely mirrors how **production-grade AI monitoring systems** are built in cybersecurity environments.
+- PyTorch → Deep Learning Autoencoder
+- FastAPI → Real-Time Inference API
+- SQLite → Persistent Anomaly Storage
+- Streamlit → Interactive Monitoring Dashboard
+- Docker + Render + Streamlit Cloud → Cloud Deployment
 
 ---
 
-## ✨ Key Features
+# 📌 Project Overview
 
-- 🔍 Autoencoder-based anomaly detection (unsupervised)
-- ⚡ Real-time ingestion & inference using FastAPI
-- 🚦 Severity classification (LOW, MEDIUM, HIGH, CRITICAL)
-- 🧠 Deep learning model built with PyTorch
-- 💾 Persistent storage using SQLite
-- 🚨 Alert generation & logging
-- 📊 Interactive Streamlit dashboard
-- 📈 Time-series & per-IP anomaly visualization
-- 🍩 Severity distribution donut chart
-- 📤 Exportable anomaly records (CSV)
-- 🧩 Modular & reproducible project structure
+Traditional monitoring systems struggle to detect unknown or evolving threats in dynamic network environments.
+
+This project solves that problem using:
+
+- Unsupervised Deep Learning
+- Real-Time Inference
+- Live Threat Visualization
+- Severity-Based Alerting
+- Interactive Security Analytics
+
+The system continuously ingests network traffic data, reconstructs normal patterns using an autoencoder neural network, and flags high reconstruction-error samples as anomalies.
 
 ---
 
-## 🧱 System Architecture
+# Core Idea
+
+The autoencoder is trained only on normal traffic patterns.
+
+When abnormal traffic appears:
+
+Input ≠ Reconstructed Output
+
+the reconstruction error increases.
+
+If the error crosses a threshold:
+
+Anomaly Detected
+
+---
+
+# ✨ Features
+
+## AI-Powered Detection
+- Autoencoder-based anomaly detection
+- Unsupervised learning approach
+- Reconstruction error scoring
+
+## Real-Time Monitoring
+- Continuous data ingestion
+- Live FastAPI inference pipeline
+- Real-time dashboard updates
+
+## Threat Classification
+Severity levels:
+- LOW
+- MEDIUM
+- HIGH
+- CRITICAL
+
+## Interactive Analytics Dashboard
+Includes:
+- Time-series anomaly trends
+- Severity distribution donut chart
+- Per-IP anomaly timelines
+- Top offending source IPs
+- Live anomaly tables
+- Interactive filtering controls
+
+## Persistent Storage
+- SQLite-based anomaly database
+- Historical anomaly tracking
+- Exportable records
+
+## Alerting System
+- Real-time security alerts
+- Critical anomaly notifications
+- Persistent logging
+
+## Cloud Deployment
+- Backend deployed on Render
+- Dashboard deployed on Streamlit Cloud
+- GitHub-integrated deployment pipeline
+
+---
+
+# System Architecture
 
 ```text
-Network Traffic (CSV / Stream)
-            |
-            v
-     Simulator / Ingest Client
-            |
-            v
-        FastAPI Backend
-     (Autoencoder Inference)
-            |
-            +--> SQLite Database (anomalies.db)
-            |
-            +--> Alert Logs (alerts.log)
-            |
-            v
-     Streamlit Dashboard
-   (Monitoring & Visualization)
+                ┌─────────────────────┐
+                │ Network Traffic Data │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │ Simulator / Ingest  │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │ FastAPI Backend API │
+                │  Real-Time Inference│
+                └──────────┬──────────┘
+                           │
+          ┌────────────────┴────────────────┐
+          ▼                                 ▼
+┌──────────────────┐             ┌──────────────────┐
+│ SQLite Database  │             │ Alert Logging    │
+│ anomalies.db     │             │ alerts.log       │
+└──────────────────┘             └──────────────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │ Streamlit Dashboard │
+                │ Monitoring & Charts │
+                └─────────────────────┘
 
-
-Project Structure
+# 📂 Project Structure
 
 anomaly-detection/
 │
-├── app_improved.py              # FastAPI backend
-├── dashboard_enhanced_v2.py     # Streamlit dashboard
-├── simulator.py                 # Real-time data simulator
-├── train_autoencoder.py         # Model training script
-├── subset_generator.py          # Dataset preprocessing
+├── app_improved.py               # FastAPI backend API
+├── dashboard_enhanced_v2.py      # Streamlit dashboard
+├── simulator.py                  # Real-time anomaly simulator
+├── train_autoencoder.py          # Autoencoder training pipeline
+├── subset_generator.py           # Dataset preprocessing
 │
 ├── data/
-│   └── subsetA.csv              # Small working dataset
+│   └── subsetA.csv               # Demo dataset subset
 │
 ├── models/
-│   ├── autoencoder.pt
-│   ├── ae_scaler.joblib
-│   └── ae_features.json
+│   ├── autoencoder.pt            # Trained PyTorch model
+│   ├── ae_scaler.joblib          # Feature scaler
+│   └── ae_features.json          # Feature definitions
 │
-├── anomalies.db                 # SQLite anomaly storage
-├── alerts.log                   # Alert logs
+├── anomalies.db                  # SQLite anomaly database
+├── alerts.log                    # Security alert logs
 ├── requirements.txt
+├── Dockerfile
 ├── .gitignore
 └── README.md
 
+# Tech Stack
 
-🚀 Installation
+| Layer              | Technology              |
+| ------------------ | ----------------------- |
+| Deep Learning      | PyTorch                 |
+| Backend API        | FastAPI                 |
+| Frontend Dashboard | Streamlit               |
+| Database           | SQLite                  |
+| Data Processing    | Pandas, NumPy           |
+| Visualization      | Plotly                  |
+| Deployment         | Render, Streamlit Cloud |
+| Model Storage      | Joblib, JSON            |
+| Language           | Python                  |
 
-1️⃣ Clone the Repository
+
+# --Installation 
+Clone Repository
+
 git clone https://github.com/rajesh-9553/anomaly-detection.git
 cd anomaly-detection
 
-2️⃣ Create & Activate Virtual Environment
-python -m venv anomaly
+# --Create Virtual Environment
 
 Windows
+python -m venv anomaly
 anomaly\Scripts\activate
 
 Linux / macOS
+python3 -m venv anomaly
 source anomaly/bin/activate
 
-3️⃣ Install Dependencies
+Install Dependencies
 pip install -r requirements.txt
 
-▶️ Running the Project
-🔹 Start FastAPI Backend
+Running the Project
+
+Start FastAPI Backend
 python -m uvicorn app_improved:app --reload --port 8000
 
-
-API Docs:
+API Documentation:
 http://localhost:8000/docs
 
-🔹 Start Streamlit Dashboard
+Start Streamlit Dashboard
 streamlit run dashboard_enhanced_v2.py
 
-
-Dashboard:
+Dashboard URL:
 http://localhost:8501
 
-🔹 Start Data Simulator (Optional)
+Start Real-Time Simulator
 python simulator.py
 
-This streams data continuously to the API.
+📊 Dashboard Capabilities
+
+The dashboard provides:
+Real-time anomaly monitoring
+Threat severity visualization
+Top suspicious IP analysis
+Interactive filtering
+Historical anomaly tracking
+Security alerting
+Per-IP timeline analysis
+
+-- Autoencoder Workflow
+
+Input Features
+      │
+      ▼
+ Encoder Compresses Data
+      │
+      ▼
+ Bottleneck Representation
+      │
+      ▼
+ Decoder Reconstructs Input
+      │
+      ▼
+Reconstruction Error Calculated
+      │
+      ▼
+Threshold Comparison
+      │
+      ▼
+Anomaly Classification
+
 
 📁 Dataset Information
 
-This project uses the UNSW-NB15 dataset.
-Due to GitHub size limits, full datasets are not included.
+This project uses the UNSW-NB15 cybersecurity dataset.
+Due to GitHub file-size limitations, only a small working subset is included.
 
-Included:
-subsetA.csv (demo subset)
+Included
+subsetA.csv
 
-Excluded:
+Excluded
 UNSW-NB15_1.csv
 UNSW-NB15_2.csv
 
-Dataset source:
+Dataset Source:
 https://research.unsw.edu.au/projects/unsw-nb15-dataset
 
 
+☁️ Deployment
+
+Backend
+Deployed on Render using Docker containerization.
+
+Dashboard
+Deployed on Streamlit Cloud.
+
+Deployment Workflow
+Git Push → Auto Deploy → Live Dashboard Update
 
 
+⭐ Final Note
 
-
-
-
-
-
-
-
-
-
-
+This project is not just a machine learning model — it is a complete real-time AI monitoring pipeline simulating how modern anomaly detection systems are designed, deployed, monitored, and visualized in production environments.
