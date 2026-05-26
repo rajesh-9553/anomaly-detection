@@ -335,7 +335,7 @@ Git Push → Auto Deploy → Live Dashboard Update
 
 ---
 
-# 🔮 Future Improvements
+# Future Improvements
 
 * WebSocket-based live streaming
 * Kafka event pipeline
