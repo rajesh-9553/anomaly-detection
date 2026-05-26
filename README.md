@@ -28,7 +28,7 @@ The system continuously ingests network traffic data, reconstructs normal patter
 
 ---
 
-# 🧠 Core Idea
+# Core Idea
 
 The autoencoder is trained only on normal traffic patterns.
 
@@ -48,7 +48,7 @@ Anomaly Detected
 
 ---
 
-# ✨ Features
+# Features
 
 ## AI-Powered Detection
 
@@ -102,7 +102,7 @@ Includes:
 
 ---
 
-# 🏗️ System Architecture
+# System Architecture
 
 ```text
                 ┌─────────────────────┐
@@ -165,7 +165,7 @@ anomaly-detection/
 
 ---
 
-# 🧱 Tech Stack
+# Tech Stack
 
 | Layer              | Technology              |
 | ------------------ | ----------------------- |
@@ -181,7 +181,7 @@ anomaly-detection/
 
 ---
 
-# ⚙️ Installation
+# Installation
 
 ## Clone Repository
 
@@ -214,7 +214,7 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Running the Project
+# Running the Project
 
 ## Start FastAPI Backend
 
@@ -250,7 +250,7 @@ This continuously streams network records to the backend API for real-time infer
 
 ---
 
-# 📊 Dashboard Capabilities
+# Dashboard Capabilities
 
 The dashboard provides:
 
@@ -264,7 +264,7 @@ The dashboard provides:
 
 ---
 
-# 🧠 Autoencoder Workflow
+# Autoencoder Workflow
 
 ```text
 Input Features
@@ -347,7 +347,7 @@ Git Push → Auto Deploy → Live Dashboard Update
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 ## Rajesh S
 
