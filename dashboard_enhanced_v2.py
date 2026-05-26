@@ -5,7 +5,7 @@ import altair as alt
 import json
 
 # CONFIG
-API = "http://localhost:8000"
+API = "https://anomaly-detection-vvhh.onrender.com"
 ANOMALIES_ENDPOINT = f"{API}/anomalies"
 
 SEVERITY_COLORS = {
